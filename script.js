@@ -10,13 +10,18 @@ function convertToRoman(num) {
     };
 
   //your code here
-	 let result = "";
-  for (let [symbol, value] of obj) {
+	  let result = "";
+
+  // Extract values in order → [['M',1000],['D',500],...]
+  const romanPairs = Object.values(obj);
+
+  for (let [symbol, value] of romanPairs) {
     while (num >= value) {
       result += symbol;
       num -= value;
     }
   }
+
   return result;
 
 
